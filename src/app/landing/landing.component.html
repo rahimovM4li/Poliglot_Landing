@@ -1,0 +1,139 @@
+<!-- Fortschrittsbalken oben -->
+<div id="progress-bar" [style.width]="progressWidth" class="progress-bar"></div>
+
+<!-- Header mit Logo und Navigation -->
+<header class="flex justify-between items-center px-6 py-4 bg-primary text-white sticky top-0 z-50 shadow-md">
+  <div class="logo flex items-center gap-2">
+    <svg viewBox="0 0 100 100" id="logo" class="w-12 h-12">
+      <circle cx="50" cy="50" r="40" stroke="#4b2e2e" stroke-width="5" fill="white" />
+      <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" fill="#4b2e2e" font-size="20">Poliglot</text>
+    </svg>
+    <span class="font-bold text-xl tracking-wide hidden sm:inline">Poliglot</span>
+  </div>
+  <nav [class.open]="isNavbarOpen" id="navbar">
+    <ul class="flex gap-6 items-center text-base font-semibold">
+      <li><a href="#hero" class="hover:text-accent transition">Асосӣ</a></li>
+      <li><a href="#services" class="hover:text-accent transition">Курсҳо</a></li>
+      <li><a href="#whyus" class="hover:text-accent transition">Чаро мо?</a></li>
+      <li><a href="#testimonials" class="hover:text-accent transition">Шогирдон</a></li>
+      <li><a href="#contact" class="hover:text-accent transition">Тамос</a></li>
+    </ul>
+  </nav>
+  <div id="hamburger" (click)="toggleNavbar()" class="sm:hidden text-3xl cursor-pointer">&#9776;</div>
+</header>
+
+<!-- Hero Section -->
+<section id="hero" class="hero-section flex flex-col justify-center items-center text-center min-h-[90vh] bg-cover bg-center relative"
+         style="background-image: linear-gradient(rgba(75,46,46,0.7),rgba(75,46,46,0.7)), url('/assets/homepageBG.jpg');">
+  <div class="max-w-2xl mx-auto px-4 py-16 animate-fadeIn">
+    <h1 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight tracking-tight text-white drop-shadow-lg">
+      Забони олмониро аз сифр омӯзед — бо <span class="text-accent">Poliglot!</span>
+    </h1>
+    <p class="hero-subtext text-lg md:text-2xl mb-8 text-white/90 font-medium">
+      Барномаи инноватсионӣ, ки дар Тоҷикистон ҳамто надорад.
+    </p>
+    <a href="#contact" class="hero-btn bg-accent hover:bg-white hover:text-primary transition px-8 py-3 rounded-lg text-lg font-bold shadow-lg duration-300">
+      Оғоз кардан
+    </a>
+  </div>
+  <!-- kleine Scroll-Animation -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+    <svg class="w-8 h-8 text-white/80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+    </svg>
+  </div>
+</section>
+
+<!-- Kursangebot -->
+<section id="services" class="py-20 bg-white text-center">
+  <h2 class="text-3xl md:text-4xl font-bold text-primary mb-10 tracking-tight">Курсҳои мо</h2>
+  <div class="service-cards grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto items">
+    <div class="card group relative flex flex-col items-center bg-secondary rounded-xl shadow-lg p-6 hover:-translate-y-2 hover:shadow-2xl transition duration-300"
+         *ngFor="let service of [
+      { img: '/assets/Books.jpg', title: 'А1–С1 курсҳо', desc: 'Аз алифбо то фаҳмиши академӣ — ба осонӣ ва равшан.' },
+      { img: '/assets/Test.jpg', title: 'Goethe & TELC', desc: 'Омодагӣ ба имтиҳонҳои байналмилалӣ — бо усули Poliglot.' },
+      { img: '/assets/class.png', title: 'Синфҳои инфиродӣ', desc: 'Барномаи шахсӣ барои ҳар як донишҷӯ.' },
+      { img: '/assets/visa.png', title: 'Машварат барои таҳсил', desc: 'Ҳуҷҷатҳо, раванд ва машварат барои таҳсил дар Олмон.' }
+    ]">
+      <img [src]="service.img" [alt]="service.title" class="w-full h-40 object-cover rounded-lg mb-4 shadow group-hover:scale-105 transition duration-300">
+      <h3 class="text-xl font-semibold text-primary mb-2">{{ service.title }}</h3>
+      <p class="text-gray-700 mb-2">{{ service.desc }}</p>
+    </div>
+  </div>
+</section>
+
+<!-- Warum Poliglot? -->
+
+<section id="whyus" class="py-20 bg-white text-center">
+  <h2 class="text-3xl md:text-4xl font-bold text-primary mb-10 tracking-tight">Чаро маҳз Poliglot?</h2>
+  <div class="service-cards grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+    <div class="card group relative flex flex-col items-center bg-secondary rounded-xl shadow-lg p-6 hover:-translate-y-2 hover:shadow-2xl transition duration-300"
+         *ngFor="let service of [
+      { img: '/assets/Books.jpg', title: 'Барномаи махсус', desc: 'Методикаи таълимие, ки танҳо дар Poliglot ҳаст.' },
+      { img: '/assets/Test.jpg', title: 'Муваффақияти кафолатнок', desc: 'Зиёда аз 80% шогирдон баъди хатм таҳсилро дар Аврупо идома медиҳанд.' },
+      { img: '/assets/class.png', title: 'Муҳити дӯстона', desc: 'Мо бо муҳаббат ва дастгирӣ таълим медиҳем.' },
+      { img: '/assets/visa.png', title: 'Омӯзгорони воқеӣ', desc: 'Ҳамаи устодони мо таҷрибаи зиндагӣ ва таҳсил дар Олмон доранд.' },
+        { img: '/assets/Books.jpg', title: 'Дарсҳои зинда', desc: 'Дарсҳо бо омӯзгорони воқеӣ ва муҳити дӯстона.' },
+  { img: '/assets/Test.jpg', title: 'Дастгирии доимӣ', desc: 'Мо ҳамеша дар паҳлӯи шумо ҳастем — ҳатто берун аз дарс.' },
+  { img: '/assets/class.png', title: 'Барномаи инфиродӣ', desc: 'Ҳар як донишҷӯ барномаи шахсии худро мегирад.' },
+  { img: '/assets/visa.png', title: 'Муошират ва амал', desc: 'Шумо на танҳо грамматика, балки гуфтугӯ ва фаҳмро меомӯзед.' },
+  { img: '/assets/Books.jpg', title: 'Машғулиятҳои гурӯҳӣ', desc: 'Омӯзиш дар гурӯҳҳои хурд барои натиҷаи беҳтар.' },
+  { img: '/assets/Test.jpg', title: 'Машварати ройгон', desc: 'Пеш аз оғози курс, машварати инфиродӣ мегиред.' }
+    ]">
+      <img [src]="service.img" [alt]="service.title" class="w-full h-40 object-cover rounded-lg mb-4 shadow group-hover:scale-105 transition duration-300">
+      <h3 class="text-xl font-semibold text-primary mb-2">{{ service.title }}</h3>
+      <p class="text-gray-700 mb-2">{{ service.desc }}</p>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section id="testimonials" class="testimonials py-20 bg-white">
+  <h2 class="text-3xl md:text-4xl font-bold text-primary text-center mb-10">Чӣ шуморо дар Poliglot интизор аст?</h2>
+  <div class="testimonial-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    <article
+      *ngFor="let point of [
+        { text: 'Шумо забони олмониро аз сифр то дараҷаи академӣ меомӯзед — бо равиши қулай ва муассир.'},
+        { text: 'Методикаи мо махсус барои тоҷикон таҳия шудааст — бо назардошти забон ва фарҳанг.'},
+        { text: 'Ҳар дарс дар фазои дӯстона, сабурона ва пурэнергия мегузарад. Мо бо муҳаббат таълим медиҳем.'},
+        { text: 'Дастгирии доимӣ: шумо танҳо нестед. Мо ҳамеша дар паҳлӯи шумо хоҳем буд — ҳатто берун аз дарс.'},
+        { text: 'Машғулиятҳои зинда бо омӯзгорон, на танҳо видеоҳое, ки шумо танҳо тамошо мекунед.'},
+        { text: 'Ҳар як донишҷӯ барномаи инфиродӣ мегирад — мувофиқ ба сатҳ, ҳадаф ва тарзи омӯзиши худ.'},
+        { text: 'Шумо фақат грамматика намеомӯзед — мо бо шумо гап мезанем, мешунавем ва фикрро баён мекунем.'},
+        { text: 'Мо бо шумо дар як самт ҳастем — ба сӯи таҳсил ва зиндагӣ дар Олмон!'}
+      ]"
+      class="bg-secondary shadow-lg p-6 rounded-xl flex flex-col items-center hover:-translate-y-2 hover:shadow-2xl transition duration-300"
+    >
+      <svg viewBox="0 0 100 100" id="logo" class="w-12 h-12">
+        <circle cx="50" cy="50" r="40" stroke="#4b2e2e" stroke-width="5" fill="white" />
+        <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" fill="#4b2e2e" font-size="20">Poliglot</text>
+      </svg>
+      <p class="text-lg text-gray-700 text-center">{{ point.text }}</p>
+    </article>
+  </div>
+</section>
+
+<!-- Kontaktformular -->
+
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-content">
+    <div class="contacts">
+      <h3>📍 Контактная информация</h3>
+      <ul>
+        <li>🏠 Адрес: г. Исфара, Таджикистан, Подземка городского базара</li>
+        <li>📞 Телефон: +992 98 529 83 08</li>
+        <li>🕘 Время работы: ежедневно с 9:00 до 18:00</li>
+        <li>📸 Instagram: <a href="https://www.instagram.com/toj_style" target="_blank">&#64;toj_style</a></li>
+      </ul>
+    </div>
+    <div class="technologies">
+      <h3>💻 Разработчик сайта</h3>
+      <p>Сайт разработан: <strong>Мухаммадали Рахимов</strong><br>
+        Использовано: Angular, JSON Server, Tailwind CSS<br>
+        🌐 Портфолио: <a href="https://m4li.de/" target="_blank">M4li.de</a></p>
+    </div>
+  </div>
+  <p class="copyright">&copy; 2025 Poliglot. Все права защищены.</p>
+</footer>
