@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/poliglot-dushanbe/browser",
+    "public": "dist/poliglot-dushande/browser",
     "ignore": [
       "firebase.json",
       "**/.*",

@@ -68,7 +68,7 @@ export class LandingComponent implements OnInit {
           loadingScreen.style.display = 'none';
         }, 500);
       }
-    }, 3000);
+    }, 1500);
   });
 }
 }
